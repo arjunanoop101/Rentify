@@ -1,0 +1,17 @@
+.product-display{
+    margin-top: 30px;
+}
+
+.product-display h1{
+    font-weight: 700;
+    font-size: 3rem;
+}
+
+
+.product-display-list{
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(300px,1fr));
+    margin-top: 30px;
+    gap: 30px;
+    row-gap: 50px;
+}
