@@ -1,0 +1,22 @@
+.footer-content{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    /* color: white; */
+}
+
+.footer-content-left img{
+    /* border: 2px solid red; */
+    width: 350px;
+}
+
+.footer{
+    /* border:2px solid black; */
+    margin-top: 20px;
+    background-color: #FFE0CE;
+}
+
+.footer-copyright{
+    text-align: center;
+    color:white;
+}
