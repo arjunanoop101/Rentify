@@ -16,7 +16,10 @@ const Navbar = () => {
         <li onClick={()=>setMenu("ContactUs")} className={menu==="ContactUs"? "active":""}>Contact Us</li>
       </ul>
       <div className="navbar-right">
+        
         <FontAwesomeIcon icon={faMagnifyingGlass} size='xl'/>
+       
+        
 
         <div className="navbar-search-icon">
             <FontAwesomeIcon icon={faCartShopping} size='xl'/>

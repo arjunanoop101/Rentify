@@ -20,3 +20,26 @@
     text-align: center;
     color:white;
 }
+
+
+@media (max-width:1050px) {
+    .footer-content-left img{
+        /* border: 2px solid red; */
+        width: 250px;
+    }
+    
+}
+@media (max-width:750px) {
+    .footer-content-left img{
+        /* border: 2px solid red; */
+        width: 150px;
+    }
+    /* .footer-content{
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+        justify-content: space-between;
+        padding-bottom: 10px;
+    } */
+    
+}

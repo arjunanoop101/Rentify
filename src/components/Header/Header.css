@@ -54,3 +54,26 @@
     font-weight: bold;
     cursor: pointer;
 }
+
+@media (max-width:1050px) {
+
+    .header{
+        height: 38vw;
+    }
+    .header-content{
+        max-width: 45%;
+    }
+}
+@media (max-width:750px) {
+
+    .header-content button{
+        font-size: 15px;
+        padding: 7px;
+    }
+    .header-content{
+        max-width: 55%;
+    }
+    .header-content p{
+        display: none;
+    }
+}
