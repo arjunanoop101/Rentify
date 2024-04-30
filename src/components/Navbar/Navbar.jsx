@@ -9,7 +9,7 @@ const Navbar = ({setShowLogin}) => {
   return (
     <div className='navbar'>
 
-      <h2 className='logo'>Rentify.</h2>
+     <Link to='/'><h2 className='logo'>Rentify.</h2></Link> 
       <ul className="navbar-menu">
         <Link to="/" onClick={()=>setMenu("home")} className={menu==="home"? "active":""}>Home</Link>
         <a href='#product-display' onClick={()=>setMenu("Products")} className={menu==="Products"? "active":""}>Products</a>
@@ -23,7 +23,7 @@ const Navbar = ({setShowLogin}) => {
         
 
         <div className="navbar-search-icon">
-            <FontAwesomeIcon icon={faCartShopping} size='xl'/>
+            <Link to='/cart'><FontAwesomeIcon icon={faCartShopping} size='xl'/></Link>
             <div className="dot"></div>
         </div>
           
