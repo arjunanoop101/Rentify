@@ -2,7 +2,7 @@ import React from 'react'
 import './ContactUs.css'
 const ContactUs = () => {
   return (
-    <div className='contact'>
+    <div className='contact' id='contact-us'>
       <div className="contact-form">
         <h2>Contact Us</h2>
         <label htmlFor=""></label>
