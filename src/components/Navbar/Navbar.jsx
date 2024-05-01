@@ -13,8 +13,8 @@ const Navbar = ({setShowLogin}) => {
       <ul className="navbar-menu">
         <Link to="/" onClick={()=>setMenu("home")} className={menu==="home"? "active":""}>Home</Link>
         <a href='#product-display' onClick={()=>setMenu("Products")} className={menu==="Products"? "active":""}>Products</a>
-        <a href='#' onClick={()=>setMenu("Sell")} className={menu==="Sell"? "active":""}>Sell</a>
         <a href='#contact-us' onClick={()=>setMenu("ContactUs")} className={menu==="ContactUs"? "active":""}>Contact Us</a>
+        <a href='#' onClick={()=>setMenu("Sell")} className={menu==="Sell"? "active":""}>Sell</a>
       </ul>
       <div className="navbar-right">
         
