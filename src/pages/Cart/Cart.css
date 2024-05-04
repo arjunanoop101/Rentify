@@ -37,7 +37,7 @@
     display: flex;
     justify-content: space-between;
     gap: max(12vw,20px);
-    /* background-color: beige; */
+    /* background-color: beige;  */
     width: 50%;
 }
 

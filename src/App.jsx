@@ -6,6 +6,11 @@ import Cart from './pages/Cart/Cart'
 import PlaceOrder from './pages/PlaceOrder/PlaceOrder'
 import Footer from './components/Footer/Footer'
 import LoginPopup from './components/LoginPopup/LoginPopup'
+import Product from './pages/Product/Product'
+import Sell from './pages/Sell/Sell'
+import Add from './pages/Add/Add'
+import List from './pages/List/List'
+import MyOrders from './pages/MyOrders/MyOrders'
 const App = () => {
   const [showLogin,setShowLogin] = useState(false);
   return (
@@ -17,7 +22,11 @@ const App = () => {
         <Route path='/' element={<Home/>}/>
         <Route path='/cart' element={<Cart/>}/>
         <Route path='/order' element={<PlaceOrder/>}/>
-
+        <Route path='/Sell' element={<Sell/>}/>
+        <Route path='/Add' element={<Add/>}/>
+        <Route path='/List' element={<List/>}/>
+        <Route path='/MyOrders' element={<MyOrders/>}/>
+        {/* <Route path='/product' element={<Product/>}/> */}
       </Routes>
     </div>
       <Footer/>
