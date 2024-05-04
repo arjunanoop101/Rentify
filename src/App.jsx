@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Navbar from './components/Navbar/Navbar'
 import { Routes,Route } from 'react-router'
 import Home from './pages/Home/Home'
@@ -11,8 +11,14 @@ import Sell from './pages/Sell/Sell'
 import Add from './pages/Add/Add'
 import List from './pages/List/List'
 import MyOrders from './pages/MyOrders/MyOrders'
+
+// import {auth} from './firebase';
+
 const App = () => {
+
   const [showLogin,setShowLogin] = useState(false);
+ 
+
   return (
     <>
     {showLogin?<LoginPopup setShowLogin={setShowLogin}/>:<></>}
@@ -26,6 +32,7 @@ const App = () => {
         <Route path='/Add' element={<Add/>}/>
         <Route path='/List' element={<List/>}/>
         <Route path='/MyOrders' element={<MyOrders/>}/>
+        <Route path='/all' element={<Product/>}/>
         {/* <Route path='/product' element={<Product/>}/> */}
       </Routes>
     </div>

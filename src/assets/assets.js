@@ -6,6 +6,9 @@ import electronic_1 from './electronic_1.webp'
 import electronic_2 from './electronic_2.webp'
 import clothing_1 from './clothing_1.webp'
 import clothing_2 from './clothing_2.webp'
+import bike from './bike.jpg'
+import electronic from './electronics.jpeg'
+import furniture from './furniture.jpg'
 // import electronics from './electronics.jpg'
 export const assets={
     logo
@@ -21,8 +24,12 @@ export const item_list = [
         item_image : cars
     },
     {
-        item_name : "Apartment",
-        item_image : apartment
+        item_name : "Bikes",
+        item_image : bike
+    },
+    {
+        item_name : "Furniture",
+        item_image : furniture
     },
     {
         item_name : "Clothing",
@@ -30,28 +37,12 @@ export const item_list = [
     },
     {
         item_name : "Electronics",
+        item_image : electronic
+    },
+    {
+        item_name : "Apartment",
         item_image : apartment
-    },
-    {
-        item_name : "Tools",
-        item_image : cars
-    },
-    {
-        item_name : "Tools",
-        item_image : cars
-    },
-    {
-        item_name : "Tools",
-        item_image : cars
-    },
-    {
-        item_name : "Tools",
-        item_image : cars
-    },
-    {
-        item_name : "Tools",
-        item_image : cars
-    },
+    }
 ]
 
 

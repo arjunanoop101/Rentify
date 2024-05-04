@@ -1,7 +1,9 @@
 import React, { createRef, useState } from 'react'
 import './LoginPopup.css'
+import { useNavigate } from 'react-router'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faPlus,faXmark} from '@fortawesome/free-solid-svg-icons'
+
 const LoginPopup = ({setShowLogin}) => {
     const [currState,setCurrState] = useState("Sign Up"); 
   return (
@@ -12,10 +14,10 @@ const LoginPopup = ({setShowLogin}) => {
             <FontAwesomeIcon onClick={()=>setShowLogin(false)} icon={faXmark} size='xl'/>
         </div>
         <div className="login-popup-inputs">
-                {currState==='Login'?<></>:<input type="text" placeholder='Your name' required/>}
+                {currState==='Login'?<></>:<input type="text" placeholder='Your name' required onChange={(event)=>setValues((prev)=>({...prev,name:event.target.value}))}/>}
             
-            <input type="email" placeholder='Your email' required/>
-            <input type="password" placeholder='password' required/>
+            <input type="email" placeholder='Your email' required onChange={(event)=>setValues((prev)=>({...prev,email:event.target.value}))}/>
+            <input type="password" placeholder='password' required onChange={(event)=>setValues((prev)=>({...prev,pass:event.target.value}))}/>
         </div>
         <button>{currState==="Sign Up"?"Create Account":"Login"}</button>
         <div className='login-popup-condition'>
