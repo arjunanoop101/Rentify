@@ -2,14 +2,19 @@ import logo from './logo.png'
 import apartment from './apartment.jpg'
 import cars from './cars.jpg'
 import clothing from './clothing.jpg'
-import electronic_1 from './electronic_1.webp'
-import electronic_2 from './electronic_2.webp'
-import clothing_1 from './clothing_1.webp'
-import clothing_2 from './clothing_2.webp'
 import bike from './bike.jpg'
 import electronic from './electronics.jpeg'
 import furniture from './furniture.jpg'
-// import electronics from './electronics.jpg'
+import bike3 from './bike3.png'
+import bike4 from './bike4.png'
+import bike5 from './bike5.png'
+import car1 from './car1.png'
+import car2 from './car2.png'
+import car3 from './car3.png'
+import car4 from './car4.png'
+import car5 from './car5.png'
+
+
 export const assets={
     logo
 }
@@ -50,69 +55,67 @@ export const item_list = [
 export const product_list = [
     {
         id:"1",
-        name:"Electronic",
-        image:electronic_1,
+        name:"car1",
+        image:car1,
         price:1000,
         description:"This is the description of the product",
-        catogory:"Electronics"
+        catogory:"Cars"
     },
-
     {
         id:"2",
-        name :"Electronic",
-        image :electronic_2,
-        price:5000,
-        description:"This is the description of the product",
-        catogory:"Electronics"
-    },
-
-    {
-        id:"3",
-        name:"Clothing",
-        image:clothing_1,
-        price:500,
-        description:"This is the description of the product",
-        catogory:"Clothing"
-    },
-
-    {
-        id:"4",
-        name:"Clothing",
-        image:clothing_2,
+        name:"car2",
+        image:car2,
         price:1000,
         description:"This is the description of the product",
-        catogory:"Clothing"
+        catogory:"Cars"
+    },
+    {
+        id:"3",
+        name:"car3",
+        image:car3,
+        price:1000,
+        description:"This is the description of the product",
+        catogory:"Cars"
+    },
+    {
+        id:"4",
+        name:"car4",
+        image:car4,
+        price:1000,
+        description:"This is the description of the product",
+        catogory:"Cars"
     },
     {
         id:"5",
-        name:"Clothing",
-        image:clothing_2,
+        name:"car5",
+        image:car5,
         price:1000,
         description:"This is the description of the product",
-        catogory:"Clothing"
+        catogory:"Cars"
     },
     {
         id:"6",
-        name:"Clothing",
-        image:clothing_2,
+        name:"bike3",
+        image:bike3,
         price:1000,
         description:"This is the description of the product",
-        catogory:"Clothing"
+        catogory:"Bikes"
     },
     {
         id:"7",
-        name:"Clothing",
-        image:clothing_2,
+        name:"bike4",
+        image:bike4,
         price:1000,
         description:"This is the description of the product",
-        catogory:"Clothing"
+        catogory:"Bikes"
     },
     {
         id:"8",
-        name:"Clothing",
-        image:clothing_2,
+        name:"bike5",
+        image:bike5,
         price:1000,
         description:"This is the description of the product",
-        catogory:"Clothing"
+        catogory:"Bikes"
     },
+
 ]
