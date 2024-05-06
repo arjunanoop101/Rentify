@@ -6,7 +6,7 @@ import {faPlus,faXmark} from '@fortawesome/free-solid-svg-icons'
 import { StoreContext } from '../../context/StoreContext'
 const ProductItem = ({id,name,price,description,image}) => {
 
-  const {cartItems,addToCart,removeFromCart,productList} =useContext(StoreContext);
+  const {cartItems,addToCart,removeFromCart} =useContext(StoreContext);
  
   
 

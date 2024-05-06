@@ -4,7 +4,11 @@ import { useNavigate } from 'react-router'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faPlus,faXmark} from '@fortawesome/free-solid-svg-icons'
 import {auth} from '../../firebase'
-import { createUserWithEmailAndPassword } from 'firebase/auth'
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth'
+import { productDB } from '../../firebase'
+import { addDoc, doc, setDoc } from 'firebase/firestore'
+
+
 
 const LoginPopup = ({setShowLogin}) => {
     const [currState,setCurrState] = useState("Sign Up"); 
@@ -18,8 +22,13 @@ const LoginPopup = ({setShowLogin}) => {
         e.preventDefault();
         createUserWithEmailAndPassword(auth,userCredentials.email,userCredentials.password)
         .then((userCredentials)=>{
-          const user = userCredentials.user
+          const user = auth.currentUser;
           console.log(user);
+          if(user){
+            addDoc(collection(productDB,'Users'),
+            {email:userCredentials.email,
+            name:userCredentials.name })
+          }
         })
         .catch((error)=>{
           const errorCode = error.code;
@@ -31,10 +40,20 @@ const LoginPopup = ({setShowLogin}) => {
 
     function handleLogin(e){
       e.preventDefault();
-      console.log("Login")
+      signInWithEmailAndPassword(auth,userCredentials.email,userCredentials.password)
+      .then((userCredentials)=>{
+        window.location.href="/";
+      })
+      .catch((error)=>{
+        const errorCode = error.code;
+        const errorMessage = error.errorMessage;
+        console.log(errorCode);
+        console.log(errorMessage);
+      });
     }
     
   return (
+    
     <div className='login-popup'>
       <form  className="login-popup-container">
         <div className="login-popup-title">
@@ -42,7 +61,7 @@ const LoginPopup = ({setShowLogin}) => {
             <FontAwesomeIcon onClick={()=>setShowLogin(false)} icon={faXmark} size='xl'/>
         </div>
         <div className="login-popup-inputs">
-                {currState==='Login'?<></>:<input type="text" placeholder='Your name' required />}
+                {currState==='Login'?<></>:<input type="text" placeholder='Your name' name='name'required />}
             
             <input onChange={(e)=>{handleCredentials(e)}} type="email" placeholder='Your email' name='email' required />
             <input  onChange={(e)=>{handleCredentials(e)}} type="password" placeholder='password' name='password' required />
