@@ -1,31 +1,39 @@
-import React from 'react'
-import './Product.css'
-import ProductItem from '../../components/ProductItem/ProductItem'
-import { StoreContext } from '../../context/StoreContext'
-import { useContext } from 'react'
-import { useState } from 'react'
+import React, { useState, useEffect } from 'react';
+// import { Link } from 'react-router-dom'; // Import Link component
+import './Product.css';
+import ProductItem from '../../components/ProductItem/ProductItem';
+import { collection, getDocs } from 'firebase/firestore';
+import { productDB } from '../../firebase';
 
 const Product = () => {
-  const {product_list} = useContext(StoreContext);
-  const [catogory,setCatogory] = useState("All");
-  return (
-    <div className='product-display' id='product-display'>
-    <h1>All products </h1>
-    <div className='product-display-list'>
-      {product_list.map((item,index)=>{
-        
-        if(catogory==="All" || catogory===item.catogory){
+    const [fetchedProductList, setFetchedProductList] = useState([]);
 
-          return(
-              <ProductItem key ={index} id={item.id} name={item.name} image={item.image} description={item.description} price={item.price}/>
-          )
-        }
-      
-        
-      })}
-    </div>
-  </div>
-  )
+    useEffect(() => {
+        const fetchProductData = async () => {
+            try {
+                const productRef = collection(productDB, 'products');
+                const snapshot = await getDocs(productRef);
+                const productList = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+                setFetchedProductList(productList);
+            } catch (error) {
+                console.error('Error fetching product data: ', error);
+            }
+        };
+
+        fetchProductData();
+    }, []);
+
+    return (
+        <div className='product-display' id='product-display'>
+            <h1>Our Products</h1>
+            {/* <Link to='/all'><button className='show-more'>Show more</button></Link> */}
+            <div className='product-display-list'>
+                {fetchedProductList.map((item, index) => (
+                    <ProductItem key={index} id={item.id} name={item.productName} image={item.img} description={item.productDescription} price={item.productPrice} />
+                ))}
+            </div>
+        </div>
+    );
 }
 
-export default Product
+export default Product;

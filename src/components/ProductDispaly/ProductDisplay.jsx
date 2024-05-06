@@ -33,7 +33,7 @@ const ProductDisplay = ({ catogory }) => {
             <div className='product-display-list'>
                 {fetchedProductList.map((item, index) => {
                     if (index < 8) {
-                        if (catogory === "All" || catogory === item.catogory) {
+                        if (catogory === "All" || catogory === item.productCategory) {
                             return (
                                 <ProductItem key={index} id={item.id} name={item.productName} image={item.img} description={item.productDescription} price={item.productPrice} />
                             )

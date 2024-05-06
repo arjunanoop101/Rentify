@@ -4,7 +4,7 @@ import {StoreContext} from '../../context/StoreContext'
 import Sidebar from '../../components/Sidebar/Sidebar'
 const List = () => {
 
-  const{product_list}=useContext(StoreContext)
+  const{productList}=useContext(StoreContext)
   return (
     <div className='list'>
       <Sidebar/>
@@ -20,13 +20,13 @@ const List = () => {
             <b>Price</b>
             <b>Action</b>
           </div>
-          {product_list.map((item,index)=>{
+          {productList.map((item,index)=>{
             return(
               <div key={index} className='list-table-format'>
-                <img src={item.image} alt=""/>
-                <p>{item.name}</p>
-                <p>{item.catogory}</p>
-                <p>{item.price}</p>
+                <img src={item.img} alt=""/>
+                <p>{item.productName}</p>
+                <p>{item.productCategory}</p>
+                <p>{item.productPrice}</p>
                 <p>X</p>
               </div>
             )

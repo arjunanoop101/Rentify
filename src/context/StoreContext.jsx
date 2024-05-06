@@ -1,57 +1,60 @@
-import { createContext, useContext, useEffect, useState } from "react";
-import { product_list } from "../assets/assets";
+import React, { createContext, useContext, useEffect, useState } from "react";
+import { collection, getDocs } from "firebase/firestore";
+import { productDB } from "../firebase";
+
 export const StoreContext = createContext(null);
 
-const StoreContextProvider =(props)=> {
+const StoreContextProvider = (props) => {
+    const [productList, setProductList] = useState([]);
+    const [cartItems, setCartItems] = useState({});
 
-    const [cartItems,setCartItems] = useState({});
+    useEffect(() => {
+        const fetchProductData = async () => {
+            try {
+                const productRef = collection(productDB, "products");
+                const snapshot = await getDocs(productRef);
+                const products = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+                setProductList(products);
+            } catch (error) {
+                console.error("Error fetching product data: ", error);
+            }
+        };
 
-    const addToCart = (itemId) =>{
-        if(cartItems[itemId]==0){
-            setCartItems((prev)=>({...prev,[itemId]:1}));
-            console.log("add to cart called");
-        }
-    }
+        fetchProductData();
+    }, []);
 
-    const removeFromCart = (itemId) =>{
-        
-            setCartItems((prev)=>({...prev,[itemId]:0}));
-            console.log("remove from cart called");
-        
-    }
+    const addToCart = (itemId) => {
+        setCartItems((prev) => ({ ...prev, [itemId]: 1 }));
+    };
 
-    const getTotalCartAmount = ()=>{
+    const removeFromCart = (itemId) => {
+        setCartItems((prev) => ({ ...prev, [itemId]: 0 }));
+    };
+
+    const getTotalCartAmount = () => {
         let totalAmount = 0;
-        for(const item in cartItems )
-        {
-            if(cartItems[item] > 0){
-
-                let itemInfo = product_list.find((product)=>product.id===item);
-                totalAmount += itemInfo.price;
+        for (const itemId in cartItems) {
+            const item = productList.find((product) => product.id === itemId);
+            if (cartItems[itemId] > 0) {
+                totalAmount += item.price;
             }
         }
-        return totalAmount
-    }
-    
-    
+        return totalAmount;
+    };
 
     const contextValue = {
-        product_list,
+        productList,
         cartItems,
         addToCart,
         removeFromCart,
-        setCartItems,
-        getTotalCartAmount
-        
-        
-        
-    }
+        getTotalCartAmount,
+    };
+
     return (
         <StoreContext.Provider value={contextValue}>
             {props.children}
         </StoreContext.Provider>
-    )
-}
-
+    );
+};
 
 export default StoreContextProvider;
