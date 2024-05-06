@@ -13,7 +13,7 @@ import car2 from './car2.png'
 import car3 from './car3.png'
 import car4 from './car4.png'
 import car5 from './car5.png'
-
+import { productDB } from '../firebase'
 
 export const assets={
     logo
