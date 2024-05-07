@@ -5,7 +5,7 @@ const Header = () => {
     <div className='header'>
       <div className="header-content">
         <h2>Rent Anything Anytime...</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos quae obcaecati cumque tempore natus blanditiis, vel aperiam dolor vero dignissimos!</p>
+        {/* <p>Explore a wide range of rental options with Rentify, your user-friendly platform for finding apartments, office spaces, and more. Experience seamless searches, secure communication, and expert support for a stress-free rental journey.</p> */}
         <button>Explore</button>
       </div>
       
