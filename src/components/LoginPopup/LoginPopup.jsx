@@ -30,6 +30,7 @@ const LoginPopup = ({setShowLogin}) => {
           const errorMessage = error.errorMessage;
           console.log(errorCode);
           console.log(errorMessage);
+          alert(error);
         });
     }
 
@@ -47,6 +48,7 @@ const LoginPopup = ({setShowLogin}) => {
         const errorMessage = error.errorMessage;
         console.log(errorCode);
         console.log(errorMessage);
+        alert(error);
       });
     }
     

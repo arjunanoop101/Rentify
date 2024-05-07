@@ -22,9 +22,11 @@ const ContactUs = () => {
     if (res.success) {
       console.log('Success', res);
       setResult(res.message);
+      console.log(result);
     } else {
       console.error('Error', res);
       setResult(res.message);
+      console.log(result);
     }
   };
 

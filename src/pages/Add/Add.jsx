@@ -77,11 +77,11 @@ const Add = () => {
             <div className="add-catogory flex-col">
               <p>Product Catogory</p>
               <select name="catogory" value={productCategory} onChange={(e) => setProductCategory(e.target.value)} required>
-                <option value="Electronic">Electronics</option>
-                <option value="Apartments">Apartments</option>
+                <option value="Electronics">Electronics</option>
+                <option value="Apartment">Apartments</option>
                 <option value="Clothing">Clothing</option>
-                <option value="Tools">Bikes</option>
-                <option value="Vehicles">Cars</option>
+                <option value="Bikes">Bikes</option>
+                <option value="Cars">Cars</option>
               </select>
             </div>
             <div className="add-price flex-col">
