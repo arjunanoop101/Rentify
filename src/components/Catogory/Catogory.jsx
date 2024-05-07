@@ -7,7 +7,7 @@ const Catogory = ({catogory,setCatogory}) => {
   return (
     <div className='catogory-menu' id='catogory-menu'>
       <h1>Catogories</h1>
-      <p className='catogory-menu-text'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi eligendi, aut minus assumenda ducimus ad aliquid quibusdam culpa laboriosam tenetur.</p>
+      <p className='catogory-menu-text'>Explore a wide range of rental options with RentEase, your user-friendly platform for finding apartments, office spaces, and more. Experience seamless searches, secure communication, and expert support for a stress-free rental journey.</p>
       <div className="catogory-menu-list">
          {item_list.map((item,index)=>{
           return(
