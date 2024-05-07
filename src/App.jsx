@@ -11,7 +11,7 @@ import Sell from './pages/Sell/Sell'
 import Add from './pages/Add/Add'
 import List from './pages/List/List'
 import MyOrders from './pages/MyOrders/MyOrders'
-import {ToastContainer} from 'react-toastify'
+
 // import {auth} from './firebase';
 
 const App = () => {
@@ -24,7 +24,6 @@ const App = () => {
     {showLogin?<LoginPopup setShowLogin={setShowLogin}/>:<></>}
      <div className='app'>
       <Navbar setShowLogin = {setShowLogin}/>
-      <ToastContainer/>
       <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='/cart' element={<Cart/>}/>
@@ -36,7 +35,6 @@ const App = () => {
         <Route path='/all' element={<Product/>}/>
         {/* <Route path='/product' element={<Product/>}/> */}
       </Routes>
-     
     </div>
       <Footer/>
     

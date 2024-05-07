@@ -5,8 +5,6 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faPlus,faXmark} from '@fortawesome/free-solid-svg-icons'
 import {auth} from '../../firebase'
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth'
-import { productDB } from '../../firebase'
-import { addDoc, doc, setDoc } from 'firebase/firestore'
 
 
 
@@ -19,16 +17,13 @@ const LoginPopup = ({setShowLogin}) => {
     }
 
     function handleSignup(e){
+      
         e.preventDefault();
         createUserWithEmailAndPassword(auth,userCredentials.email,userCredentials.password)
         .then((userCredentials)=>{
           const user = auth.currentUser;
           console.log(user);
-          if(user){
-            addDoc(collection(productDB,'Users'),
-            {email:userCredentials.email,
-            name:userCredentials.name })
-          }
+          alert("New user registered");
         })
         .catch((error)=>{
           const errorCode = error.code;
@@ -42,7 +37,10 @@ const LoginPopup = ({setShowLogin}) => {
       e.preventDefault();
       signInWithEmailAndPassword(auth,userCredentials.email,userCredentials.password)
       .then((userCredentials)=>{
+      
         window.location.href="/";
+        alert("You are signed in");
+
       })
       .catch((error)=>{
         const errorCode = error.code;
@@ -53,7 +51,7 @@ const LoginPopup = ({setShowLogin}) => {
     }
     
   return (
-    
+    <>
     <div className='login-popup'>
       <form  className="login-popup-container">
         <div className="login-popup-title">
@@ -80,6 +78,9 @@ const LoginPopup = ({setShowLogin}) => {
         
       </form> 
     </div>
+    
+  </>
+ 
   )
 }
 
